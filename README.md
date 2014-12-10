@@ -1,6 +1,6 @@
 # nginx configuration for ExpressionEngine
 
-At [Vector Media Group](http://www.vectormediagroup.com) we're big fans of nginx. It's often a much faster and more stable alternative to Apache, especially on projects getting heavy concurrent traffic. We use it on as many ExpressionEngine (and other CMS) sites as possible so have created a template to use as a starting point on our projects.
+At [Vector Media Group](http://www.vectormediagroup.com) we're big fans of nginx. It's often a much faster and more stable alternative to Apache -- especially on projects getting heavy concurrent traffic. We use it on as many ExpressionEngine (and other CMS) sites as possible, so have created a template to use as a starting point on our projects.
 
 This configuration has support and working code for:
 
@@ -15,7 +15,7 @@ This configuration has support and working code for:
 ## Instructions to deploy this nginx setup
 
 * Run `yum install php54-fpm nginx` or its equivalent for your server OS and desired versions to install nginx and PHP-FPM.
-* Place these files in `/etc/nginx` and `/etc/nginx/conf.d`, leaving any other existing files.
+* Place this repository's files in `/etc/nginx` and `/etc/nginx/conf.d`, leaving any other existing files.
 * Rename `domain-redirects.conf` and `domain-rules.conf` to use your actual domain (e.g. `vectormediagroup.com-rules.conf`)
 * Change "domain" in the three files to the main domain of the site
 * In nginx.conf:
