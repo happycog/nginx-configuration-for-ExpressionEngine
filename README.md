@@ -18,7 +18,7 @@ This configuration has support and working code for:
 * Place this repository's files in `/etc/nginx` and `/etc/nginx/conf.d`, leaving any other existing files.
 * Rename `domain-redirects.conf` and `domain-rules.conf` to use your actual domain (e.g. `vectormediagroup.com-rules.conf`)
 * Change "domain" in the three files to the main domain of the site
-* In nginx.conf:
+* In `nginx.conf`:
   * Update the `server_name` directive for the real domain
   * Update the `root` directive to point to the real docroot (e.g. `/var/www/html/vectormediagroup`)
   * Update the `include` paths for `domain-redirects.conf` and `domain-rules.conf` to match their new names 
@@ -30,10 +30,10 @@ This configuration has support and working code for:
     * Uncomment `listen 443 ssl` and the SSL certificate paths
     * Replace `ssl_certificate` with your SSL certificate file. If you have a CA Bundle, [concatenate it after your main certificate file](http://nginx.org/en/docs/http/configuring_https_servers.html#chains)
     * Replace `ssl_certificate_key` with your SSL private key.
-* In domain-redirects.conf:
+* In `domain-redirects.conf`:
   * Add domain redirects if needed by uncommenting lines and updating the examples as appropriate.
   * Uncomment the last directive and replace `www.domain.com` with the production domain to force `www` in URLs
-* In domain-rules.conf
+* In `domain-rules.conf`:
   * If you're using CE Cache static caching, uncomment the top "CE Cache static" section (everything through "`# End CE Cache static rewrites`") and replace `xxxxxx` in the cache path with the actual value provided by CE Cache.
   * Look for the rule that replaces `.htaccess` `Deny` files. Replace `system` with the site's actual `system`/control panel path.
   * Add any other folders/paths that would usually need `Deny from all` to this directive (remember, nginx doesn't parse `.htaccess` files)
