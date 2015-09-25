@@ -30,14 +30,21 @@ This configuration has support and working code for:
     * Uncomment `listen 443 ssl` and the SSL certificate paths
     * Replace `ssl_certificate` with your SSL certificate file. If you have a CA Bundle, [concatenate it after your main certificate file](http://nginx.org/en/docs/http/configuring_https_servers.html#chains)
     * Replace `ssl_certificate_key` with your SSL private key.
+  * If you're using CE Cache static caching:
+    * Uncomment the include `include /etc/nginx/conf.d/domain-ce_cache-rules.conf;`
+  * If you're using Stash static caching:
+    * Uncomment the include `include /etc/nginx/conf.d/domain-stash-rules.conf;`
 * In `domain-redirects.conf`:
   * Add domain redirects if needed by uncommenting lines and updating the examples as appropriate.
   * Uncomment the last directive and replace `www.domain.com` with the production domain to force `www` in URLs
 * In `domain-rules.conf`:
-  * If you're using CE Cache static caching, uncomment the top "CE Cache static" section (everything through "`# End CE Cache static rewrites`") and replace `xxxxxx` in the cache path with the actual value provided by CE Cache.
   * Look for the rule that replaces `.htaccess` `Deny` files. Replace `system` with the site's actual `system`/control panel path.
   * Add any other folders/paths that would usually need `Deny from all` to this directive (remember, nginx doesn't parse `.htaccess` files)
   * Uncomment any other commented blocks if you need any of the other rules in place. We've left a few examples to follow.
+
+* In `domain-ce_cache-rules.conf`:
+   * If you're using CE Cache static caching, replace `xxxxxx` in the cache path with the actual value provided by CE Cache.
+
   
 ### Server notes
   * On CentOS or RHEL run the following to start nginx and PHP-FPM, and make sure they start on reboot:
